@@ -22,9 +22,9 @@ class ParametrosPDO extends PDOBase
         $parametros = new parametros();
         $parametros->atualizar($_POST);
         if (isset($_POST['envia_notificacao'])) {
-            $parametros->setEnvia_notificacao(1);
+            $parametros->setEnviaNotificacao(1);
         } else {
-            $parametros->setEnvia_notificacao(0);
+            $parametros->setEnviaNotificacao(0);
         }
         $parametros->save();
         echo "<script>javascript:history.go(-1);</script>";

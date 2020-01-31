@@ -171,7 +171,7 @@ class Notificacao {
 
     function send($enviado = true) {
         $parametros = new parametros();
-        if ($parametros->getEnviarNotificacao() == 0) {
+        if ($parametros->getEnviaNotificacao() == 0) {
             return false;
         }
 

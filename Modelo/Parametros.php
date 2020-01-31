@@ -2,32 +2,39 @@
 
 class parametros
 {
-
+//Os parametros não comentados não são fundamentais
     private $id_parametro = 0;
     private $nome_empresa = "Prefeitura Comunica";
     private $is_foto = 0;
     private $emailContato = "contato@markeyvip.com";
     private $hasAdm = 1;
-    private $telefones = "(55) 99959-8414";
+    private $telefones = "";
     private $logo = "";
     private $ruaNumero = "";
     private $cidade = "";
     private $sms = 0;
     private $estado = "";
-    private $app_token = "AAAAW9yWcpU:APA91bGu9PcQ6iBvtNR0YUSOmLW2V6l0aYb-_uDyA36sgILxOrx0IOiGTzm2bE-KjzREdzu46vWbrMml5dlBBsbOylDxDdNqZo4glUn88_6HFdXbuXfeF7_Zto-32TcpfzdgTLGEy9up";
+    //Token do firebase para o aplicativo
+    private $app_token = "";
     private $envia_notificacao = 0;
     private $server;
-    private $face_app_id = "923573528013985";
-    private $face_app_secret = "7e74dd0ff62cb33ac67ce15cebd47438";
-    private $link_app = "https://play.google.com/store/apps/details?id=markey.hotel";
+    //Id do aplicativo do facebook para login
+    private $face_app_id = "";
+    //Senha do aplicativo do facebook
+    private $face_app_secret = "";
+    private $link_app = "";
     private $qr_app = "";
     private $active_chat = 0;
     private $confirma_email = 0;
     private $firebase_topic = "dispositivos";
-    private $nome_db = "prefcomu";
-    private $capKey = "6LdSGcIUAAAAAGaul6g_0TN_7iBJ4dmHNh8Eul_D";
-    private $smsUser = "dcastro";
-    private $smsPass = "Class.7ufo";
+    //Nome do banco mysql
+    private $nome_db = "";
+    //Chave do recapcha
+    private $capKey = "";
+    //Usuario do facilitamovel para envio de sms
+    private $smsUser = "";
+    //Senha do facilitamovel
+    private $smsPass = "";
 
     public function __construct()
     {
