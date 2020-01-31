@@ -16,8 +16,6 @@ if (!isset($_SESSION)) {
 }
 include_once $pontos . 'Modelo/Usuario.php';
 include_once $pontos . 'Modelo/Parametros.php';
-include_once $pontos . 'Modelo/Agendamento.php';
-include_once $pontos . 'Controle/agendamentoPDO.php';
 $parametros = new parametros();
 $logado = new usuario(unserialize($_SESSION['logado']));
 ?>
@@ -29,7 +27,7 @@ $logado = new usuario(unserialize($_SESSION['logado']));
             <a href="#" data-target="slide-out" class="sidenav-trigger">
                 <i class="material-icons black-text">menu</i>
             </a>
-            <?php if ($parametros->getIs_foto() == 1) { ?>
+            <?php if ($parametros->getIsFoto() == 1) { ?>
                 <a  href="<?php echo $pontos; ?>./index.php" class="brand-logo initLoader">
                     <img class="responsive-img hide-on-small-only" src="<?php echo $pontos . $parametros->getLogo() . '?' . $numeruzinho; ?>" style="max-height: 60px; height:auto; width: auto; margin-left: 5px;">
                     <img class="responsive-img hide-on-med-and-up" src="<?php echo $pontos . $parametros->getLogo() . '?' . $numeruzinho; ?>" style="max-height: 55px; height:auto; width: auto; margin-left: 5px;">
@@ -37,7 +35,7 @@ $logado = new usuario(unserialize($_SESSION['logado']));
             <?php } else {
                 ?>
                 <a  href="<?php echo $pontos; ?>index.php" class="brand-logo black-text initLoader">
-                    <?php echo $parametros->getNome_empresa(); ?>
+                    <?php echo $parametros->getNomeEmpresa(); ?>
                 </a> 
             <?php }
             ?>
@@ -53,7 +51,6 @@ $logado = new usuario(unserialize($_SESSION['logado']));
                                  height: 32px; width: 32px;
                                  background-position: center;
                                  background-size: cover;
-                                 background-position: center;
                                  background-repeat: no-repeat;
                                  object-fit: cover;
                                  object-position: center;
@@ -66,19 +63,6 @@ $logado = new usuario(unserialize($_SESSION['logado']));
 
                     <ul id='dropPessoal' class='dropdown-content'>
                         <li><a href="<?php echo $pontos ?>Tela/perfil.php" id="linkquarto" class="black-text modal-trigger initLoader">Meu Perfil</a></li>
-                        <?php if (isset($_SESSION['quarto'])) {
-                            ?>
-                            <li><a href="<?php echo $pontos; ?>Tela/listagemAgendamento.php" class="black-text initLoader">Minha Agenda</a></li>
-
-                            <?php
-                            if ($parametros->getConfirma_agendamento() == 1) {
-                                $agendamentoPDO = new AgendamentoPDO();
-                                echo '<li><a href = "' . $pontos . 'Tela/agendamentosPendentes.php " class = "black-text initLoader">Agendamentos Pendentes<span class="new badge" style="background-color: #E25211" data-badge-caption="">' . $agendamentoPDO->agendamentosPendentesN($logado->getId_usuario()) . '</span></a></li>';
-                            }
-                            ?>
-
-                        <?php }
-                        ?>
                     </ul>
                 </li>
                 <!--Botão de Inicio-->
@@ -100,12 +84,12 @@ $logado = new usuario(unserialize($_SESSION['logado']));
                     <ul id='dropAdministracao' class='dropdown-content'>
                         <li>
                             <a href="<?php echo $pontos ?>Tela/listagemUsuario.php" class="black-text initLoader">
-                                Clientes
+                                Usuários
                             </a>
                         </li>
                         <li>
                             <a href="<?php echo $pontos ?>Tela/cadastroUsuarioAdm.php" class="black-text initLoader">
-                                Cadastrar Clientes
+                                Cadastrar Usuário
                             </a>
                         </li>
                         <li><a href="<?php echo $pontos ?>Tela/editarParametros.php" class="black-text initLoader">
@@ -124,20 +108,6 @@ $logado = new usuario(unserialize($_SESSION['logado']));
                         ?>
                     </ul>
                 </li>
-
-                <li>
-                    <a class='dropdown-trigger black-text' href="#!" data-target='dropfuncionarios' >
-                        <div class="chip detalheSuave">
-                            Quartos
-                        </div>
-                    </a>
-                    <ul id='dropfuncionarios' class='dropdown-content'>
-                        <li><a href="<?php echo $pontos; ?>Tela/registroQuarto.php" id="linkquarto" class="black-text modal-trigger initLoader">Cadastrar</a></li>
-                        <li><a href="<?php echo $pontos; ?>Tela/listagemQuarto.php" class="black-text initLoader">Ver Quartos Agrupados</a></li>
-                        <li><a href="<?php echo $pontos; ?>Tela/listagemReservaveis.php" class="black-text initLoader">Ver Quartos Individuais</a></li>
-                    </ul>
-                </li>
-
                 <li><a class="btSair black-text initLoader" href="<?php echo $pontos; ?>Controle/usuarioControle.php?function=logout&url=<?php echo $_SERVER["REQUEST_URI"]; ?>" class="black-text">
                         <div class="chip detalheSuave " >
                             Sair
@@ -176,19 +146,6 @@ $logado = new usuario(unserialize($_SESSION['logado']));
             <div class="collapsible-body">
                 <ul class="grey lighten-2">
                     <li><a href="<?php echo $pontos ?>Tela/perfil.php" id="linkquarto" class="black-text modal-trigger initLoader">Ver Meu Perfil</a></li>
-                    <?php if (isset($_SESSION['quarto'])) {
-                        ?>
-                        <li><a href="<?php echo $pontos; ?>Tela/listagemAgendamento.php" class="black-text initLoader">Minha Agenda</a></li>
-
-                        <?php
-                        if ($parametros->getConfirma_agendamento() == 1) {
-                            $agendamentoPDO = new AgendamentoPDO();
-                            echo '<li><a href = "' . $pontos . 'Tela/agendamentosPendentes.php " class = "black-text initLoader">Agendamentos Pendentes<span class="new badge" style="background-color: #E25211" data-badge-caption="">' . $agendamentoPDO->agendamentosPendentesN($logado->getId_usuario()) . '</span></a></li>';
-                        }
-                        ?>
-
-                    <?php }
-                    ?>
                 </ul>
             </div>
         </li>
@@ -198,17 +155,12 @@ $logado = new usuario(unserialize($_SESSION['logado']));
                 <ul class="grey lighten-2">
                     <li>
                         <a href="<?php echo $pontos ?>Tela/listagemUsuario.php" class="black-text initLoader">
-                            Ver Clientes
+                            Ver Usuários
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo $pontos ?>Tela/cadastroUsuarioAdm.php" class="black-text initLoader">
-                            Cadastrar Clientes
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $pontos ?>Tela/listaTodosQuartoes.php" class="black-text initLoader">
-                            Próximos horários
+                            Cadastrar Usuários
                         </a>
                     </li>
                     <li>
@@ -227,16 +179,6 @@ $logado = new usuario(unserialize($_SESSION['logado']));
                         <?php
                     }
                     ?>
-                </ul>
-            </div>
-        </li>
-        <li>
-            <div class="collapsible-header anime" x="0">Quartos<i class="large material-icons right animi">arrow_drop_down</i></div>
-            <div class="collapsible-body">
-                <ul class="grey lighten-2">
-                    <li><a href="<?php echo $pontos; ?>Tela/registroQuarto.php" id="linkquarto" class="black-text modal-trigger initLoader">Cadastrar</a></li>
-                    <li><a href="<?php echo $pontos; ?>Tela/listagemQuarto.php" class="black-text initLoader">Ver Quartos Agrupados</a></li>
-                    <li><a href="<?php echo $pontos; ?>Tela/listagemReservaveis.php" class="black-text initLoader">Ver Quartos Individuais</a></li>
                 </ul>
             </div>
         </li>

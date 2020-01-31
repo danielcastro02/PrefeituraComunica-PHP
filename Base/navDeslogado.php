@@ -18,8 +18,8 @@ $url = $_SERVER['REQUEST_URI'];
 require_once $pontos . 'vendor/autoload.php'; // change path as needed
 include_once $pontos . 'Modelo/Parametros.php';
 $fb = new Facebook\Facebook([
-    'app_id' => $parametros->getFace_app_id(),
-    'app_secret' => $parametros->getFace_app_secret(),
+    'app_id' => $parametros->getFaceAppId(),
+    'app_secret' => $parametros->getFaceAppSecret(),
     'default_graph_version' => 'v2.10',
         ]);
 $helper = $fb->getRedirectLoginHelper();
@@ -30,7 +30,7 @@ $loginUrl = $helper->getLoginUrl($parametros->getServer() . '/Controle/facebookR
 
 <nav class="nav-extended white" style="position: relative;">
     <div class="nav-wrapper" style="margin-left: auto; margin-right: auto;">
-        <?php if ($parametros->getIs_foto() == 1) { ?>
+        <?php if ($parametros->getIsFoto() == 1) { ?>
             <a  href="<?php echo $pontos; ?>./index.php" class="brand-logo left initLoader">
                 <img class="responsive-img" src="<?php echo $pontos . $parametros->getLogo() . '?' . $numeruzinho; ?>" style="max-height: 60px; height:auto; width: auto; margin-left: 5px;">
 
@@ -38,7 +38,7 @@ $loginUrl = $helper->getLoginUrl($parametros->getServer() . '/Controle/facebookR
         <?php } else {
             ?>
             <a  href="<?php echo $pontos; ?>index.php" class="brand-logo black-text left initLoader">
-                <?php echo $parametros->getNome_empresa(); ?>
+                <?php echo $parametros->getNomeEmpresa(); ?>
             </a> 
         <?php } ?>
 

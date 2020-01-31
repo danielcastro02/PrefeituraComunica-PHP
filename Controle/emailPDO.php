@@ -28,15 +28,16 @@
             $mail = new PHPMailer(true);
             try {
                 //Server settings
+                //TODO adicionar credenciais servidor e remetente nas consfigurações abaixo
                 $mail->isSMTP();                                            // Set mailer to use SMTP
-                $mail->Host = 'mail.markeyvip.com';  // Specify main and backup SMTP servers
+                $mail->Host = '';  // Specify main and backup SMTP servers
                 $mail->SMTPAuth = true;                                   // Enable SMTP authentication
-                $mail->Username = 'contato@markeyvip.com';                     // SMTP username
-                $mail->Password = 's8pT864Jhb';                               // SMTP password
+                $mail->Username = '';                     // SMTP username
+                $mail->Password = '';                               // SMTP password
                 $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption, `ssl` also accepted
                 $mail->Port = 465;                                    // TCP port to connect to
                 //Recipients
-                $mail->setFrom('contato@markeyvip.com', 'MarkeyHotel');
+                $mail->setFrom('', '');
                 $mail->addAddress($destino);               // Name is optional
                 $mail->addReplyTo($resposta, 'MarkeyHotel');
                 $mail->isHTML(true);                                  // Set email format to HTML

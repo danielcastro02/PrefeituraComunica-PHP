@@ -23,7 +23,7 @@ $logado = new usuario(unserialize($_SESSION['logado']));
             <a href="#" data-target="slide-out" class="sidenav-trigger">
                 <i class="material-icons black-text">menu</i>
             </a>
-            <?php if ($parametros->getIs_foto() == 1) { ?>
+            <?php if ($parametros->getIsFoto() == 1) { ?>
                 <a  href="<?php echo $pontos; ?>./index.php" class="brand-logo initLoader">
                     <img class="responsive-img hide-on-small-only" src="<?php echo $pontos . $parametros->getLogo() . '?' . $numeruzinho; ?>" style="max-height: 60px; height:auto; width: auto; margin-left: 5px;">
                     <img class="responsive-img hide-on-med-and-up" src="<?php echo $pontos . $parametros->getLogo() . '?' . $numeruzinho; ?>" style="max-height: 55px; height:auto; width: auto; margin-left: 5px;">
@@ -31,7 +31,7 @@ $logado = new usuario(unserialize($_SESSION['logado']));
             <?php } else {
                 ?>
                 <a  href="<?php echo $pontos; ?>index.php" class="brand-logo black-text initLoader">
-                    <?php echo $parametros->getNome_empresa(); ?>
+                    <?php echo $parametros->getNomeEmpresa(); ?>
                 </a> 
             <?php } ?>
             <ul class="right hide-on-med-and-down">
@@ -57,8 +57,6 @@ $logado = new usuario(unserialize($_SESSION['logado']));
                     </a>
                     <ul id='dropPessoal' class=' dropdown-content'>
                         <li><a href="<?php echo $pontos ?>Tela/perfil.php" id="linkquarto" class="black-text modal-trigger initLoader">Meu Perfil</a></li>
-                        <li><a href="<?php echo $pontos ?>Tela/meusAgendamentos.php" class="black-text modal-trigger initLoader">Meus agendamentos</a></li>
-
                     </ul>
                 </li>
 
@@ -114,7 +112,6 @@ $logado = new usuario(unserialize($_SESSION['logado']));
             <div class="collapsible-body">
                 <ul class="grey lighten-2">
                     <li><a href="<?php echo $pontos ?>Tela/perfil.php" id="linkquarto" class="black-text modal-trigger initLoader">Ver Meu Perfil</a></li>
-                    <li><a href="<?php echo $pontos ?>Tela/meusAgendamentos.php" class="black-text modal-trigger initLoader">Meus agendamentos</a></li>
                 </ul>
             </div>
         </li>

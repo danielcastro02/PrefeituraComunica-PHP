@@ -34,7 +34,8 @@ class UsuarioPDO
 
     function inserirUsuario()
     {
-        $chave = "6LdSGcIUAAAAAGaul6g_0TN_7iBJ4dmHNh8Eul_D";
+        $parametros = new parametros();
+        $chave = $parametros->getCapKey();
         $responseKey = $_POST['g-recaptcha-response'];
         $userIP = $_SERVER['REMOTE_ADDR'];
         $url = "https://www.google.com/recaptcha/api/siteverify?secret=$chave&response=$responseKey&remoteip=$userIP";
@@ -405,7 +406,7 @@ class UsuarioPDO
                 $codigo = $codigo[0];
             }
             $msgEncoded = urlencode("Olá, Seja bem vindo! " . $parametros->getNome_empresa() . " aqui, use o código: " . $codigo);
-            $url = 'https://www.facilitamovel.com.br/api/simpleSend.ft?user=dcastro&password=Class.7ufo&destinatario=' . $telefone . '&msg=' . $msgEncoded;
+            $url = 'https://www.facilitamovel.com.br/api/simpleSend.ft?user='.$parametros->getSmsUser().'&password='.$parametros->getSmsPass().'&destinatario=' . $telefone . '&msg=' . $msgEncoded;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_URL, $url);
