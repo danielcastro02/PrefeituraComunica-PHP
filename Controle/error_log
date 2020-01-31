@@ -1,0 +1,100 @@
+[09-Dec-2019 20:00:47 UTC] PHP Warning:  The use statement with non-compound name 'conversorImagem' has no effect in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/cancelamentoPDO.php on line 3
+[09-Dec-2019 18:12:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (-- 13:00:00) at position 0 (-): Unexpected character in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:394
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(394): DateTime->__construct('-- 13:00:00')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 394
+[09-Dec-2019 18:12:58 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (--text 13:00:00) at position 0 (-): Unexpected character in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:394
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(394): DateTime->__construct('--text 13:00:00')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 394
+[09-Dec-2019 18:13:01 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (--text 13:00:00) at position 0 (-): Unexpected character in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:394
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(394): DateTime->__construct('--text 13:00:00')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 394
+[09-Dec-2019 18:13:02 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (-- 13:00:00) at position 0 (-): Unexpected character in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:394
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(394): DateTime->__construct('-- 13:00:00')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 394
+[09-Dec-2019 18:13:06 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (--text 13:00:00) at position 0 (-): Unexpected character in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:394
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(394): DateTime->__construct('--text 13:00:00')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 394
+[09-Dec-2019 18:13:13 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (-- 13:00:00) at position 0 (-): Unexpected character in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:394
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(394): DateTime->__construct('-- 13:00:00')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 394
+[09-Dec-2019 18:13:15 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (--text 13:00:00) at position 0 (-): Unexpected character in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:394
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(394): DateTime->__construct('--text 13:00:00')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 394
+[09-Dec-2019 18:13:17 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (-- 13:00:00) at position 0 (-): Unexpected character in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:394
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(394): DateTime->__construct('-- 13:00:00')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 394
+[09-Dec-2019 18:13:38 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (NaN-NaN-NaN 13:00:00) at position 0 (N): The timezone could not be found in the database in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:395
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(395): DateTime->__construct('NaN-NaN-NaN 13:...')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 395
+[09-Dec-2019 18:13:53 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (NaN-NaN-NaN 13:00:00) at position 0 (N): The timezone could not be found in the database in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:395
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(395): DateTime->__construct('NaN-NaN-NaN 13:...')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 395
+[09-Dec-2019 18:15:11 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (NaN-NaN-NaN 13:00:00) at position 0 (N): The timezone could not be found in the database in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:395
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(395): DateTime->__construct('NaN-NaN-NaN 13:...')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 395
+[09-Dec-2019 18:15:41 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (NaN-NaN-NaN 13:00:00) at position 0 (N): The timezone could not be found in the database in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:395
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(395): DateTime->__construct('NaN-NaN-NaN 13:...')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 395
+[09-Dec-2019 18:16:17 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (-- 13:00:00) at position 0 (-): Unexpected character in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php:394
+Stack trace:
+#0 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php(394): DateTime->__construct('-- 13:00:00')
+#1 /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoControle.php(23): AgendamentoPDO->consultaQuarto()
+#2 {main}
+  thrown in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/agendamentoPDO.php on line 394
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Modelo/Parametros.php on line 405
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 342
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 344
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 342
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 344
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 342
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 344
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 342
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 344
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 342
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 344
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 342
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 344
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 342
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 344
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 342
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 344
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 342
+[10-Dec-2019 10:31:48 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 344
+[10-Dec-2019 10:31:49 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 342
+[10-Dec-2019 10:31:49 America/Sao_Paulo] PHP Warning:  DateTime::setTime() expects parameter 1 to be int, string given in /home/unelsb1s/public_html/hotel.markeyvip.com/Controle/quartoPDO.php on line 344
