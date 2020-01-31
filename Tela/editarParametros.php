@@ -6,7 +6,7 @@ $parametros = new parametros();
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?php echo $parametros->getNome_empresa(); ?></title>
+        <title><?php echo $parametros->getNomeEmpresa(); ?></title>
         <?php
         include_once '../Base/header.php';
         ?>
@@ -14,9 +14,6 @@ $parametros = new parametros();
     <body>
         <?php
         include_once '../Base/iNav.php';
-        $horas = new DateInterval($parametros->getTempo_cancelamento());
-        $hora = new DateTime('0000-00-00 00:00:00');
-        $hora->add($horas);
         ?>
         <main>
             <form action="../Controle/parametrosControle.php?function=update" method="POST">
@@ -31,12 +28,12 @@ $parametros = new parametros();
                                     <p>Este é o nome que vai aparecer na tela inicial e na barra de navegação.</p>
                                     <div class="row">
                                         <div class="col s12 input-field">
-                                            <input id="nome_empresa" type="text" value="<?php echo $parametros->getNome_empresa(); ?>" name="nome_empresa"/>
+                                            <input id="nome_empresa" type="text" value="<?php echo $parametros->getNomeEmpresa(); ?>" name="nome_empresa"/>
                                             <label for="nome_empresa">Nome do seu negócio</label>
                                         </div>
                                         <div class="col s12">
                                             <?php
-                                            if ($parametros->getIs_foto() == 1) {
+                                            if ($parametros->getIsFoto() == 1) {
                                                 ?>
                                                 <a class="btn waves-effect  corPadrao2" id="removeLogo" href="../Controle/parametrosControle.php?function=removeLogo">Remover logo</a>
                                                 <?php
@@ -83,38 +80,6 @@ $parametros = new parametros();
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="row">
-                            <div class="col s12 l4">
-                                <div class="col s12 l10 offset-l1 card">
-                                    <h5>Tempo de antecedencia para envio de notificação</h5>
-                                    <div class="col s12  input-field">
-                                        <input id="antecedencia" type="number" value="<?php echo $parametros->getAntecedenciaNotificaAgendamento(); ?>" name="antecedencia_notifica_agendamento"/>
-                                        <label for="antecedencia">Tempo Antecedencia</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 l4">
-                                <div class="col s12 l10 offset-l1 card">
-                                    <h5>Horário de início da Diária</h5>
-                                    <div class="col s12  input-field">
-                                        <input id="vira_diaria" type="text" value="<?php echo $parametros->getViraDiaria(); ?>" class="timepicker" name="vira_diaria"/>
-                                        <label for="vira_diaria">Horário</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 l4">
-                                <div class="col s12 l10 offset-l1 card">
-                                    <h5>Aparência do Site</h5>
-                                    <div class="col s12 input-field">
-                                        <select name="tema" id="tema">
-                                            <option selected value="default">Tema Padrão</option>
-                                        </select>
-                                        <label for="tema">Tema do Site</label>
-                                    </div>
-                                </div>
-                            </div>
-                            
                         </div>
                         <div class="row center">
                             <a class="btn waves-effect  corPadrao3" href='../index.php'>Cancelar</a>

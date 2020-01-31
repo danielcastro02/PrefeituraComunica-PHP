@@ -6,8 +6,8 @@ include_once '../Modelo/Parametros.php';
 $parametros = new parametros();
 echo $parametros->getServer();
 $fb = new Facebook\Facebook([
-    'app_id' => $parametros->getFace_app_id(),
-    'app_secret' => $parametros->getFace_app_secret(),
+    'app_id' => $parametros->getFaceAppId(),
+    'app_secret' => $parametros->getFaceAppSecret(),
     'default_graph_version' => 'v2.10',
         ]);
 
@@ -43,7 +43,7 @@ $oAuth2Client = $fb->getOAuth2Client();
 $tokenMetadata = $oAuth2Client->debugToken($accessToken);
 
 // Validation (these will throw FacebookSDKException's when they fail)
-$tokenMetadata->validateAppId($parametros->getFace_app_id());
+$tokenMetadata->validateAppId($parametros->getFaceAppId());
 
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');

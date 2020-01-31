@@ -13,7 +13,7 @@ if (!isset($_SESSION)) {
         ?>
         <meta charset="UTF-8">
 
-        <title><?php echo $parametros->getNome_empresa(); ?></title>
+        <title><?php echo $parametros->getNomeEmpresa(); ?></title>
 
     <body class="homeimg">
         <?php

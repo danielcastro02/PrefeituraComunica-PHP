@@ -13,7 +13,7 @@ include_once '../Base/requerAdm.php';
         $parametros = new parametros();
         $usuarioPDO = new usuarioPDO();
         ?>
-        <title><?php echo $parametros->getNome_empresa(); ?></title>
+        <title><?php echo $parametros->getNomeEmpresa(); ?></title>
         
     <body class="homeimg">
         <?php
@@ -37,7 +37,6 @@ include_once '../Base/requerAdm.php';
                                 <td class='center'>Email</td>
                                 <td class='center'>Telefone</td>
                                 <td class='center'>Perfil</td>
-                                <td class='center'>Agendar</td>
                                 <td class='center'>Excluir</td>
                             </tr>
                         </thead>
@@ -57,9 +56,6 @@ include_once '../Base/requerAdm.php';
                                             <td class="center telefone" data-title="Telefone"><?php echo $usuario->getTelefone() ?></td>
                                             <td class="center" data-title="Ver perfil">
                                                 <a href="verCliente.php?id_usuario=<?php echo $usuario->getId_usuario() ?>" class="btn corPadrao2">Ver perfil</a>
-                                            </td>
-                                            <td class="center" data-title="Perfil">
-                                                <a class='btn waves-effect  corPadrao2' href='../Tela/agendaTerceiro.php?id_usuario=<?php echo $usuario->getId_usuario() ?>'>Agendar</a>
                                             </td>
                                             <td class="center" data-title="Excluir">
                                                 <a class="btn waves-effect  red darken-2" href="#!" onclick="excluir(<?= $usuario->getId_usuario() ?>)"><i class="material-icons">delete</i></a>

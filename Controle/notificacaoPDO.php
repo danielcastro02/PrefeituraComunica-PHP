@@ -4,43 +4,12 @@
 
 include_once __DIR__ . '/../Modelo/Notificacao.php';
 include_once __DIR__ . '/../Controle/conexao.php';
-include_once __DIR__ . '/../Controle/agendamentoPDO.php';
 include_once __DIR__ . '/../Controle/usuarioPDO.php';
-include_once __DIR__ . '/../Controle/quartoPDO.php';
-include_once __DIR__ . '/../Controle/reservavelPDO.php';
-include_once __DIR__ . '/../Modelo/Quarto.php';
 include_once __DIR__ . '/../Modelo/Usuario.php';
-include_once __DIR__ . '/../Modelo/Agendamento.php';
 include_once __DIR__.'/../Modelo/Parametros.php';
 
 class notificacaoPDO
 {
-
-    function notificaAgendamento(agendamento $agendamento)
-    {
-        $agendamentoPDO = new agendamentoPDO();
-        $agendamento = $agendamentoPDO->selectAgendamentoId_quartoPorOutrosDados($agendamento);
-        $agendamento = new agendamento($agendamento->fetch());
-        $quartoPDO = new QuartoPDO();
-        $parametros = new parametros();
-        $usuarioPDO = new UsuarioPDO();
-        $stmtQuarto = $quartoPDO->selectQuartoId_usuario($agendamento->getId_reservavel());
-        $stmtUsuario = $usuarioPDO->selectUsuarioId_usuario($agendamento->getId_usuario());
-        $quarto = new Quarto($stmtQuarto->fetch());
-        $usuario = new usuario($stmtUsuario->fetch());
-
-        $notificacao = new Notificacao();
-        $notificacao->setDestinatario($quarto->getToken(), $quarto->getIdQuarto());
-        $notificacao->setTitle("Hora marcada");
-        $notificacao->setBody("O cliente " . $usuario->getNome() . " marcou " . $servico->getNome() . " com você no dia " . $agendamento->getHora_marcadaDateTime()->format("d/m \à\s H:i"));
-        if ($parametros->getConfirma_agendamento() == 0) {
-            $notificacao->setUrlDestino("/Tela/listagemAgendamento.php");
-        } else {
-            $notificacao->setUrlDestino("/Tela/confirmaAgendamento.php?id_agendamento=" . $agendamento->getId_agendamento());
-            $notificacao->setId_agendamento($agendamento->getId_agendamento());
-        }
-        $notificacao->send();
-    }
 
     function novoUsuario(usuario $usuario)
     {
@@ -51,38 +20,6 @@ class notificacaoPDO
         $notificacao->setUrlDestino("/Tela/listagemUsuario.php");
         $notificacao->stmt2MulticastArray($usuarioPDO->selectUsuarioAdministrador('1'));
         $notificacao->send();
-    }
-
-    function notificaCancelamento(agendamento $agendamento)
-    {
-        $reservavelPDO = new reservavelPDO();
-        $usuarioPDO = new UsuarioPDO();
-        $reservavel = new Reservavel($reservavelPDO->selectReservavelIdReservavel($agendamento->getId_reservavel())->fetch());
-        $stmtUsuario = $usuarioPDO->selectUsuarioId_usuario($agendamento->getId_usuario());
-        $usuario = new usuario($stmtUsuario->fetch());
-        $usuarios = $usuarioPDO->selectUsuarioAdministrador(1);
-        $notificacao = new Notificacao();
-        $notificacao->stmt2MulticastArray($usuarios);
-        $notificacao->setTitle("Reserva Cancelada!");
-        $notificacao->setBody("O cliente " . $usuario->getNome() . " cancelou a reserva no quarto " . $reservavel->getNome() . " do dia " . $agendamento->getHora_marcadaDateTime()->format("d/m/Y"));
-        return $notificacao->send();
-    }
-
-    function notificaCancelamentoAdm(agendamento $agendamento)
-    {
-        $usuarioPDO = new UsuarioPDO();
-        $reservavelPDO = new reservavelPDO();
-
-        $stmtReservavel = $reservavelPDO->selectReservavelIdReservavel($agendamento->getId_reservavel());
-        $quarto = new Reservavel($stmtReservavel->fetch());
-        $stmtUsuario = $usuarioPDO->selectUsuarioId_usuario($agendamento->getId_usuario());
-        $usuario = new usuario($stmtUsuario->fetch());
-        $notificacao = new Notificacao();
-        $notificacao->setDestinatario($usuario->getToken(), $usuario->getId_usuario());
-        $notificacao->setTitle("Horario Cancelado!");
-        $notificacao->setBody("Infelizmente sua reserva no quarto" . $quarto->getNome() . " do dia " . $agendamento->getHora_marcadaDateTime()->format("d/m \à\s H:i") . " foi cancelado!");
-        $notificacao->setUrlDestino("/Tela/minhasReservas.php");
-        return $notificacao->send();
     }
 
     function notificaPersonalizada()

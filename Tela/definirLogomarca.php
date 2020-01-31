@@ -11,7 +11,7 @@
         include_once '../Modelo/Parametros.php';
         $parametros = new parametros();
     ?>
-    <title><?php echo $parametros->getNome_empresa(); ?></title>
+    <title><?php echo $parametros->getNomeEmpresa(); ?></title>
 
 <body class="homeimg">
 <?php

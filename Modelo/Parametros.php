@@ -24,7 +24,7 @@ class parametros
     private $active_chat = 0;
     private $confirma_email = 0;
     private $firebase_topic = "dispositivos";
-    private $nome_db = "prefeituracomunica";
+    private $nome_db = "prefcomu";
     private $capKey = "6LdSGcIUAAAAAGaul6g_0TN_7iBJ4dmHNh8Eul_D";
     private $smsUser = "dcastro";
     private $smsPass = "Class.7ufo";

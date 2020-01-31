@@ -5,10 +5,9 @@ if (!isset($_SESSION)) {
 }
 
 include_once __DIR__ . '/../Controle/conexao.php';
+include_once __DIR__ . '/../Controle/notificacaoPDO.php';
 include_once __DIR__ . '/../Controle/emailPDO.php';
-include_once __DIR__ . '/../Controle/conversorImagem.php';
 include_once __DIR__ . '/../Modelo/Usuario.php';
-include_once __DIR__ . '/../Modelo/Quarto.php';
 include_once __DIR__ . '/../Modelo/Parametros.php';
 include_once __DIR__ . '/../Modelo/Notificacao.php';
 

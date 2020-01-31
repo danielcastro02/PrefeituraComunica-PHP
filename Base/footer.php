@@ -34,14 +34,14 @@ $parametros = new parametros();
                 </div>
 
                 <div class="col s7 l3">
-                    <?php if ($parametros->getIs_foto() == 1) { ?>
+                    <?php if ($parametros->getIsFoto() == 1) { ?>
                         <img class="responsive-img "
                              src="<?php echo $pontos . $parametros->getLogo() . '?' . $numeruzinho; ?>"
                              style="max-height: 100px; max-width: 200px; height:auto; width: auto;">
                         <?php
                     } else {
                         ?>
-                        <h5><?php echo $parametros->getNome_empresa(); ?></h5>
+                        <h5><?php echo $parametros->getNomeEmpresa(); ?></h5>
                     <?php } ?>
                 </div>
             </div>

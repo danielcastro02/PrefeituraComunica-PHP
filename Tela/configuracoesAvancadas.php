@@ -9,15 +9,12 @@ $parametros = new parametros();
     <?php
     include_once '../Base/header.php';
     ?>
-    <title><?php echo $parametros->getNome_empresa(); ?></title>
+    <title><?php echo $parametros->getNomeEmpresa(); ?></title>
 
 </head>
 <body>
 <?php
 include_once '../Base/iNav.php';
-$horas = new DateInterval($parametros->getTempo_cancelamento());
-$hora = new DateTime('0000-00-00 00:00:00');
-$hora->add($horas);
 ?>
 <main>
     <div class="row">
@@ -26,7 +23,36 @@ $hora->add($horas);
                 <h5>Configurações do Site</h5>
             </div>
             <div class="row">
+                <div class="col s12 l4">
+                    <div class="col s12 l10 offset-l1 card">
+                        <div class="row center">
+                            <h5>Chat</h5>
+                        </div>
 
+                        <form action="../Controle/parametrosControle.php?function=updateChat" method="post">
+                            <div class="row">
+                                <div class="col s12 input-field">
+                                    <div class="switch">
+                                        <span class="left teal-text">Ativar chat:</span>
+                                        <label class="right">
+                                            Off
+                                            <input type="checkbox"
+                                                   name="active_chat" <?php echo $parametros->getActiveChat() == 1 ? 'checked' : ''; ?>
+                                                   value="1">
+                                            <span class="lever"></span>
+                                            On
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn corPadrao2" type="submit">Confirmar</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
                 <div class="col s12 l4">
                     <div class="col s12 l10 offset-l1 card">
                         <h5>Configurações de Notificação</h5>
@@ -38,7 +64,7 @@ $hora->add($horas);
                                     <label class="right">
                                         Off
                                         <input type="checkbox"
-                                               name="envia_notificacao" value="1" <?php echo $parametros->getEnviarNotificacao() == 1 ? 'checked' : ''; ?>>
+                                               name="envia_notificacao" value="1" <?php echo $parametros->getEnviaNotificacao() == 1 ? 'checked' : ''; ?>>
                                         <span class="lever"></span>
                                         On
                                     </label>
@@ -58,35 +84,6 @@ $hora->add($horas);
                 </div>
 
 
-                <div class="col s12 l4">
-                    <div class="col s12 l10 offset-l1 card">
-                        <h5>Configurações de Pagamento</h5>
-                        <form action="../Controle/parametrosControle.php?function=updatePagamento" method="POST">
-                            <div class="col s12 input-field">
-
-                                <div class="switch">
-                                    <span class="left teal-text">Modulo Pagamento:</span>
-                                    <label class="right">
-                                        Off
-                                        <input type="checkbox"
-                                               name="ativa_pagamento" value="1" <?php echo $parametros->getAtiva_pagamento() == 1 ? 'checked' : ''; ?>>
-                                        <span class="lever"></span>
-                                        On
-                                    </label>
-                                </div>
-
-                            </div>
-                            <div class="col s12 input-field">
-                                <input name="mp_token" value="<?php echo $parametros->getMp_token() ?>" type="password"
-                                       id="pagamento"/>
-                                <label for="pagamento">Token do Mercado Pago:</label>
-                            </div>
-                            <div class="row">
-                                <button type="submit" class="btn waves-effect  corPadrao2">Confirmar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
                 <form action="../Controle/parametrosControle.php?function=updateQrLink" method="post"
                       enctype="multipart/form-data">
                     <div class="col s12 l4">
@@ -135,15 +132,6 @@ $hora->add($horas);
                     <div class="col s12 l4">
                         <div class="col s12 l10 offset-l1 card">
                             <h5>Configurações gerais</h5>
-                            <div class="col  s12 input-field">
-                                <input name="diasCancelamento" value="<?php echo $horas->d ?>" type="number"
-                                       id="diasCancelamento"/>
-                                <label for="diasCancelamento">Dias de antecedencia para cancelar:</label>
-                            </div>
-                            <div class="col s12 input-field">
-                                <input name="horasCancelamento" value="<?php echo $hora->format("H:i:s") ?>" type="text"
-                                       id="horasCancelamento"/>
-                            </div>
                             <div class="col s12 input-field">
                                 <div class="switch">
                                     <span class="left teal-text">Envio de SMS:</span>
@@ -151,30 +139,6 @@ $hora->add($horas);
                                         Off
                                         <input type="checkbox"
                                                name="sms" value="1"<?php echo $parametros->getSms() == 1 ? 'checked' : ''; ?>>
-                                        <span class="lever"></span>
-                                        On
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col s12 input-field">
-                                <div class="switch">
-                                    <span class="left teal-text">Confirmar Agendamentos:</span>
-                                    <label class="right">
-                                        Off
-                                        <input type="checkbox"
-                                               name="confirma_agendamento" value="1"<?php echo $parametros->getConfirma_agendamento() == 1 ? 'checked' : ''; ?>>
-                                        <span class="lever"></span>
-                                        On
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col s12 input-field">
-                                <div class="switch">
-                                    <span class="left teal-text">Check in Automatico:</span>
-                                    <label class="right">
-                                        Off
-                                        <input type="checkbox"
-                                               name="checkin" value="1" <?php echo $parametros->getCheckin() == 1 ? 'checked' : ''; ?>>
                                         <span class="lever"></span>
                                         On
                                     </label>
@@ -238,36 +202,7 @@ $hora->add($horas);
                 </div>
             </div>
             <div class="row">
-                <div class="col s12 l4">
-                    <div class="col s12 l10 offset-l1 card">
-                        <div class="row center">
-                            <h5>Chat</h5>
-                        </div>
 
-                        <form action="../Controle/parametrosControle.php?function=updateChat" method="post">
-                            <div class="row">
-                                <div class="col s12 input-field">
-                                    <div class="switch">
-                                        <span class="left teal-text">Ativar chat:</span>
-                                        <label class="right">
-                                            Off
-                                            <input type="checkbox"
-                                                   name="active_chat" <?php echo $parametros->getActiveChat() == 1 ? 'checked' : ''; ?>
-                                                   value="1">
-                                            <span class="lever"></span>
-                                            On
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <button class="btn corPadrao2" type="submit">Confirmar</button>
-                            </div>
-                        </form>
-
-
-                    </div>
-                </div>
             </div>
 
         </div>

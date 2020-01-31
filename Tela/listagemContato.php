@@ -15,7 +15,7 @@ if(!isset($_SESSION)){
             $parametros = new parametros();
             $contatoPDO = new contatoPDO();
         ?>
-        <title><?php echo $parametros->getNome_empresa(); ?></title>
+        <title><?php echo $parametros->getNomeEmpresa(); ?></title>
         
         <body class="homeimg">
         <?php

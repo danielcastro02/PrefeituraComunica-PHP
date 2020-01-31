@@ -16,7 +16,6 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include_once $pontos . 'Modelo/Usuario.php';
-include_once $pontos . 'Modelo/Quarto.php';
 if (isset($_SESSION['logado'])) {
     $usuario = new usuario(unserialize($_SESSION['logado']));
     if ($usuario->getAdministrador() != 2) {
