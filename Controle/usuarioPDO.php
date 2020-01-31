@@ -404,7 +404,7 @@ class UsuarioPDO
                 $codigo = $stmt->fetch();
                 $codigo = $codigo[0];
             }
-            $msgEncoded = urlencode("Olá, Seja bem vindo! " . $parametros->getNome_empresa() . " aqui, use o código: " . $codigo);
+            $msgEncoded = urlencode("Olá, Seja bem vindo! " . $parametros->getNomeEmpresa() . " aqui, use o código: " . $codigo);
             $url = 'https://www.facilitamovel.com.br/api/simpleSend.ft?user='.$parametros->getSmsUser().'&password='.$parametros->getSmsPass().'&destinatario=' . $telefone . '&msg=' . $msgEncoded;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

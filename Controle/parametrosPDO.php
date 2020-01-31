@@ -49,26 +49,10 @@ class ParametrosPDO extends PDOBase
         $parametros->atualizar($_POST);
         $con = new conexao();
         $horas = explode(":", $_POST['horasCancelamento']);
-        $parametros->setTempo_cancelamento('P' . $_POST['diasCancelamento'] . "DT" . $horas[0] . 'H' . $horas[1] . 'M' . $horas[2] . 'S');
-        $parametros->setConfirma_agendamento(isset($_POST['confirma_agendamento']) ? 1 : 0);
-        $parametros->setCheckin(isset($_POST['checkin']) ? 1 : 0);
         $parametros->setConfirmaEmail(isset($_POST['confirma_email']) ? 1 : 0);
         $parametros->setSms((isset($_POST['sms']) ? 1 : 0));
         $parametros->save();
         header('location: ../Tela/configuracoesAvancadas.php?msg=parametrosAtualizados');
-    }
-
-    function updatePagamento()
-    {
-        $parametros = new parametros();
-        $parametros->atualizar($_POST);
-        if (isset($_POST['ativa_pagamento'])) {
-            $parametros->setAtiva_pagamento(1);
-        } else {
-            $parametros->setAtiva_pagamento(0);
-        }
-        $parametros->save();
-        echo "<script>javascript:history.go(-1);</script>";
     }
 
     public function alteraLogo()
@@ -86,7 +70,7 @@ class ParametrosPDO extends PDOBase
             //Inserir no BD
             $ext = explode('.', $_FILES['imagem']['name']);
             $extensao = "." . $ext[(count($ext) - 1)];
-            $parametros->setIs_foto(1);
+            $parametros->setIsFoto(1);
             $parametros->setLogo('Img/' . $nome_imagem . ($extensao == '.svg' ? ".svg" : ".webp"));
             $parametros->save();
             switch ($extensao) {
@@ -127,7 +111,7 @@ class ParametrosPDO extends PDOBase
             $SendCadImg = filter_input(INPUT_POST, 'SendCadImg', FILTER_SANITIZE_STRING);
             //Receber os dados do formulÃ¡rio
             $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-            $nome_imagem = hash_file('md5', $_FILES['imagem']['tmp_name']);;
+            $nome_imagem = hash_file('md5', $_FILES['imagem']['tmp_name']);
             //Inserir no BD
             $ext = explode('.', $_FILES['imagem']['name']);
             $extensao = "." . $ext[(count($ext) - 1)];
@@ -135,7 +119,7 @@ class ParametrosPDO extends PDOBase
             $conexao = new conexao();
             $pdo = $conexao->getConexao();
             $stmt = $pdo->prepare("update parametros set  imagem_destaque = :imagem where id_parametro = :id");
-            $stmt->bindValue(':id', $parametros->getId_parametro());
+            $stmt->bindValue(':id', $parametros->getIdParametro());
             $stmt->bindValue(':imagem', 'Img/' . $nome_imagem . ($extensao == '.svg' ? ".svg" : ".webp"));
 
             //Verificar se os dados foram inseridos com sucesso
@@ -179,7 +163,7 @@ class ParametrosPDO extends PDOBase
         $parametros = new parametros();
         unlink('../' . $parametros->getLogo());
         $parametros->setLogo("");
-        $parametros->setIs_foto(0);
+        $parametros->setIsFoto(0);
         $parametros->save();
         header('Location: ../Tela/editarParametros.php');
     }
@@ -192,22 +176,6 @@ class ParametrosPDO extends PDOBase
         $linha = $stmt->fetch();
         file_put_contents("../Modelo/parametros.json", json_encode($linha));
         header("location: ../Tela/configuracoesAvancadas.php");
-    }
-
-    public
-    function removeDestaque()
-    {
-        $parametros = new parametros();
-        unlink('../' . $parametros->getImagem_destaque());
-        $pdo = conexao::getConexao();
-        $stmt = $pdo->prepare("update parametros set imagem_destaque = :imagem where id_parametro = :id");
-        $stmt->bindValue(':id', $parametros->getId_parametro());
-        $stmt->bindValue(':imagem', '');
-        if ($stmt->execute()) {
-            header('Location: ../Tela/editarParametros.php');
-        } else {
-            header('Location: ../Tela/editaParametros.php?msg=erroImagem');
-        }
     }
 
 }

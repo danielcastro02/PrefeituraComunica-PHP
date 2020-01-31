@@ -28,8 +28,8 @@ class Email {
             $this->emailObject->Password = 's8pT864Jhb';                               // SMTP password
             $this->emailObject->SMTPSecure = 'ssl';                                  // Enable TLS encryption, `ssl` also accepted
             $this->emailObject->Port = 465;                                    // TCP port to connect to
-            $this->emailObject->setFrom('contato@markeyvip.com', $this->parametros->getNome_empresa());
-            $this->emailObject->addReplyTo($this->parametros->getEmailContato(), $this->parametros->getNome_empresa());
+            $this->emailObject->setFrom('contato@markeyvip.com', $this->parametros->getNomeEmpresa());
+            $this->emailObject->addReplyTo($this->parametros->getEmailContato(), $this->parametros->getNomeEmpresa());
             $this->emailObject->isHTML(true);                                  // Set ethis->emailObject format to HTML
             $this->emailObject->AltBody = "Sua caixa de entrada não suporta este E-mail.";
             $this->emailObject->CharSet = 'UTF-8';

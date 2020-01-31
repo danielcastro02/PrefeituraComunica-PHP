@@ -48,30 +48,6 @@ class notificacaoPDO
         return $stmt;
     }
 
-    function notificaAgendamentoProximo(agendamento $agendamento)
-    {
-        $usuarioPDO = new UsuarioPDO();
-        $servicoPDO = new ServicoPDO();
-        $stmtUsuario = $usuarioPDO->selectUsuarioId_usuario($agendamento->getId_usuario());
-        $stmtServico = $servicoPDO->selecServicoAgendamento($agendamento->getId_agendamento());
-        $servico = new servico($stmtServico->fetch());
-        $usuario = new usuario($stmtUsuario->fetch());
-
-        $notificacao = new notificacao();
-        $notificacao->setDestinatario($usuario->getToken());
-        $notificacao->setTitle("Está quase na hora!");
-        $notificacao->setBody("Não perca seu horário! " . $servico->getNome() . " as " . $agendamento->getHora_marcadaDateTime()->format("H:i") . "! Estamos te aguardando!");
-        $notificacao->send();
-    }
-
-    public function notificacaoPromocao(Quarto $servico)
-    {
-        $notificacao = new notificacao();
-        $notificacao->setTitle("Promoção");
-        $notificacao->setBody("Se liga nessa... "
-            . "O quarto " . $servico->getNome() . " de R$" . $servico->getPreco() . " está por apenas R$" . $servico->getPrecoPromocao() . ", não perca essa chance ;)");
-        $notificacao->send();
-    }
 
     function drowNotification(Notificacao $notificacao , $exibido = 0)
     {

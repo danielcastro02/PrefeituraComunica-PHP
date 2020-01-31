@@ -98,25 +98,6 @@
             return $email->enviar(true, true);
         }
 
-        public function responderEmail()
-        {
-            $id_quarto = $_POST['id_quarto'];
-            $id_usuario = $_POST['id_usuario'];
-            $mensagem = $_POST['motivo'];
-            $quartoPDO = new QuartoPDO();
-            $usuarioPDO = new UsuarioPDO();
-            $quarto = new Quarto($quartoPDO->selectQuartoId_usuario($id_quarto)->fetch());
-            $usuario = new usuario($usuarioPDO->selectUsuarioId_usuario($id_usuario)->fetch());
-            $email = new Email();
-            $email->setAssunto("Resposta cancelamento");
-            $email->addDestinatario($usuario->getEmail());
-            $email->setEmailResposta($quarto->getEmail());
-            $conteudoHTML = "<p>O quarto ".$quarto->getNome().", respondeu seu email de cancelamento com a seguinte mensagem: </p>"
-                ."<p>".$mensagem."</p>";
-            $email->setMensagemHTML($conteudoHTML);
-            $email->enviar(false);
-            $_SESSION['toast'][] = "Email enviado com sucesso!";
-            header("Location: ../Tela/verCancelamentos.php");
-        }
+
 
     }
